@@ -33,3 +33,26 @@ For testing chai or mocha can be used
 
 Solidity
 
+### To compile
+
+```sh
+$ truffle compile
+```
+
+### To migrate
+
+```sh
+$ truffle migrate
+```
+
+```sh
+$ truffle migrate --reset
+```
+
+### For truffle console
+
+To check deployed smart contracts to the blockchain
+
+```sh
+$ truffle console
+```
