@@ -5,21 +5,33 @@ contract TodoList {
     uint256 public taskCount = 0;
 
     struct Task {
-        uint id;
+        uint256 id;
         string content;
         bool completed;
     }
     // Kinda like a database
-    mapping (uint => Task) public tasks;
+    mapping(uint256 => Task) public tasks;
 
-    constructor(){
+    event TaskCreated(uint256 id, string content, bool completed);
+
+    event TaskCompleted(uint256 id, bool completed);
+
+    constructor() public {
         createTask("This is for testing purpose");
     }
-    
+
     function createTask(string memory _content) public {
-        taskCount ++;
+        taskCount++;
         tasks[taskCount] = Task(taskCount, _content, false);
+        // Brodcast an event, for client side/external consumers
+        emit TaskCreated(taskCount, _content, false);
     }
 
-
+    function toggleCompleted(uint256 _id) public {
+        // tasks[_id].completed = !tasks[_id].completed;
+        Task memory _task = tasks[_id];
+        _task.completed = !_task.completed;
+        tasks[_id] = _task;
+        emit TaskCompleted(_id, _task.completed);
+    }
 }

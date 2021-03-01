@@ -2,15 +2,20 @@
   "name": "blockchain-todo",
   "version": "1.0.0",
   "description": "A blockchain todo web app powered by Ethereum",
-  "main": "app.js",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "start": "echo \"Error: no test specified\" && exit 1"
+    "start": "lite-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "chai": "^4.3.0",
+    "lite-server": "^2.6.1",
     "truffle": "^5.1.67",
     "truffle-contract": "^4.0.31"
   }
